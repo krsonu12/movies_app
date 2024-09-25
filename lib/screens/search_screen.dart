@@ -17,7 +17,7 @@ class SearchScreen extends StatelessWidget {
         title: TextField(
           decoration: const InputDecoration(hintText: 'Search...'),
           onSubmitted: (query) {
-            movieStore.fetchMovies(query);
+            movieStore.searchMovies(query);
           },
         ),
       ),
@@ -27,9 +27,9 @@ class SearchScreen extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
           return ListView.builder(
-            itemCount: movieStore.movies.length,
+            itemCount: movieStore.searchResults.length,
             itemBuilder: (context, index) {
-              final movie = movieStore.movies[index];
+              final movie = movieStore.searchResults[index];
               return ListTile(
                 leading: Image.network(movie.image),
                 title: Text(movie.title),

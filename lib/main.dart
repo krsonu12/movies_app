@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/screens/home_screen.dart';
+import 'package:movies_app/routes/app_router.dart';
 import 'package:movies_app/service_locator/service_locator.dart';
 
 void main() {
   serviceLocator();
   getIt.allReady();
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,13 +15,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      routerConfig: router,
     );
   }
 }

@@ -4,7 +4,7 @@ import 'package:movies_app/screens/details_screen.dart';
 import 'package:movies_app/screens/home_screen.dart';
 import 'package:movies_app/screens/search_screen.dart';
 
-final GoRouter _router = GoRouter(
+final GoRouter router = GoRouter(
   routes: [
     GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
     GoRoute(path: '/search', builder: (context, state) => const SearchScreen()),
