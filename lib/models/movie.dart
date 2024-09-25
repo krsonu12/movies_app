@@ -5,7 +5,7 @@ part 'movie.g.dart';
 @freezed
 class Movie with _$Movie {
   const factory Movie(
-      {required String title,
+      {required String name,
       required String summary,
       required String image}) = _Movie;
 

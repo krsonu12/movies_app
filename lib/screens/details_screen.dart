@@ -11,7 +11,7 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(movie.title),
+        title: Text(movie.name),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -19,7 +19,7 @@ class DetailsScreen extends StatelessWidget {
           children: [
             Image.network(movie.image),
             const SizedBox(height: 16),
-            Text(movie.title,
+            Text(movie.name,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),

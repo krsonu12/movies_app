@@ -8,9 +8,9 @@ part of 'movie_store.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
-mixin _$MovieStore on _MovieStoreBase, Store {
+mixin _$MovieStore on MovieStoreBase, Store {
   late final _$moviesAtom =
-      Atom(name: '_MovieStoreBase.movies', context: context);
+      Atom(name: 'MovieStoreBase.movies', context: context);
 
   @override
   ObservableList<Movie> get movies {
@@ -26,7 +26,7 @@ mixin _$MovieStore on _MovieStoreBase, Store {
   }
 
   late final _$searchResultsAtom =
-      Atom(name: '_MovieStoreBase.searchResults', context: context);
+      Atom(name: 'MovieStoreBase.searchResults', context: context);
 
   @override
   ObservableList<Movie> get searchResults {
@@ -42,7 +42,7 @@ mixin _$MovieStore on _MovieStoreBase, Store {
   }
 
   late final _$isLoadingAtom =
-      Atom(name: '_MovieStoreBase.isLoading', context: context);
+      Atom(name: 'MovieStoreBase.isLoading', context: context);
 
   @override
   bool get isLoading {
@@ -57,8 +57,24 @@ mixin _$MovieStore on _MovieStoreBase, Store {
     });
   }
 
+  late final _$errorMessageAtom =
+      Atom(name: 'MovieStoreBase.errorMessage', context: context);
+
+  @override
+  String? get errorMessage {
+    _$errorMessageAtom.reportRead();
+    return super.errorMessage;
+  }
+
+  @override
+  set errorMessage(String? value) {
+    _$errorMessageAtom.reportWrite(value, super.errorMessage, () {
+      super.errorMessage = value;
+    });
+  }
+
   late final _$fetchMoviesAsyncAction =
-      AsyncAction('_MovieStoreBase.fetchMovies', context: context);
+      AsyncAction('MovieStoreBase.fetchMovies', context: context);
 
   @override
   Future<void> fetchMovies() {
@@ -66,7 +82,7 @@ mixin _$MovieStore on _MovieStoreBase, Store {
   }
 
   late final _$searchMoviesAsyncAction =
-      AsyncAction('_MovieStoreBase.searchMovies', context: context);
+      AsyncAction('MovieStoreBase.searchMovies', context: context);
 
   @override
   Future<void> searchMovies(String query) {
@@ -78,7 +94,8 @@ mixin _$MovieStore on _MovieStoreBase, Store {
     return '''
 movies: ${movies},
 searchResults: ${searchResults},
-isLoading: ${isLoading}
+isLoading: ${isLoading},
+errorMessage: ${errorMessage}
     ''';
   }
 }

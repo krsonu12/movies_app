@@ -1,12 +1,12 @@
 // home_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movies_app/service_locator/service_locator.dart';
 import 'package:movies_app/stores/movie_store.dart';
 
 class HomeScreen extends StatelessWidget {
-  MovieStore get movieStore => GetIt.I<MovieStore>();
+  MovieStore get movieStore => getIt<MovieStore>();
 
   const HomeScreen({super.key});
 
@@ -27,7 +27,9 @@ class HomeScreen extends StatelessWidget {
       body: Observer(
         builder: (_) {
           if (movieStore.isLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
           return ListView.builder(
             itemCount: movieStore.movies.length,
@@ -35,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               final movie = movieStore.movies[index];
               return ListTile(
                 leading: Image.network(movie.image),
-                title: Text(movie.title),
+                title: Text(movie.name),
                 subtitle: Text(movie.summary),
                 onTap: () {
                   context.go('/details', extra: movie);

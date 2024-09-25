@@ -20,7 +20,7 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Movie {
-  String get title => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
 
@@ -38,7 +38,7 @@ abstract class $MovieCopyWith<$Res> {
   factory $MovieCopyWith(Movie value, $Res Function(Movie) then) =
       _$MovieCopyWithImpl<$Res, Movie>;
   @useResult
-  $Res call({String title, String summary, String image});
+  $Res call({String name, String summary, String image});
 }
 
 /// @nodoc
@@ -56,14 +56,14 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
+    Object? name = null,
     Object? summary = null,
     Object? image = null,
   }) {
     return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       summary: null == summary
           ? _value.summary
@@ -84,7 +84,7 @@ abstract class _$$MovieImplCopyWith<$Res> implements $MovieCopyWith<$Res> {
       __$$MovieImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String summary, String image});
+  $Res call({String name, String summary, String image});
 }
 
 /// @nodoc
@@ -100,14 +100,14 @@ class __$$MovieImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
+    Object? name = null,
     Object? summary = null,
     Object? image = null,
   }) {
     return _then(_$MovieImpl(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       summary: null == summary
           ? _value.summary
@@ -125,13 +125,13 @@ class __$$MovieImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MovieImpl implements _Movie {
   const _$MovieImpl(
-      {required this.title, required this.summary, required this.image});
+      {required this.name, required this.summary, required this.image});
 
   factory _$MovieImpl.fromJson(Map<String, dynamic> json) =>
       _$$MovieImplFromJson(json);
 
   @override
-  final String title;
+  final String name;
   @override
   final String summary;
   @override
@@ -139,7 +139,7 @@ class _$MovieImpl implements _Movie {
 
   @override
   String toString() {
-    return 'Movie(title: $title, summary: $summary, image: $image)';
+    return 'Movie(name: $name, summary: $summary, image: $image)';
   }
 
   @override
@@ -147,14 +147,14 @@ class _$MovieImpl implements _Movie {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MovieImpl &&
-            (identical(other.title, title) || other.title == title) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.summary, summary) || other.summary == summary) &&
             (identical(other.image, image) || other.image == image));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, title, summary, image);
+  int get hashCode => Object.hash(runtimeType, name, summary, image);
 
   /// Create a copy of Movie
   /// with the given fields replaced by the non-null parameter values.
@@ -174,14 +174,14 @@ class _$MovieImpl implements _Movie {
 
 abstract class _Movie implements Movie {
   const factory _Movie(
-      {required final String title,
+      {required final String name,
       required final String summary,
       required final String image}) = _$MovieImpl;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$MovieImpl.fromJson;
 
   @override
-  String get title;
+  String get name;
   @override
   String get summary;
   @override
