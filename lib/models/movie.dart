@@ -1,15 +1,13 @@
-class Movie {
-  final String title;
-  final String summary;
-  final String image;
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'movie.freezed.dart';
+part 'movie.g.dart';
 
-  Movie({required this.title, required this.summary, required this.image});
+@freezed
+class Movie with _$Movie {
+  const factory Movie(
+      {required String name,
+      required String summary,
+      required String image}) = _Movie;
 
-  factory Movie.fromJson(Map<String, dynamic> json) {
-    return Movie(
-      title: json['show']['name'],
-      summary: json['show']['summary'],
-      image: json['show']['image']['medium'],
-    );
-  }
+  factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
 }
