@@ -13,13 +13,13 @@ mixin _$MovieStore on MovieStoreBase, Store {
       Atom(name: 'MovieStoreBase.movies', context: context);
 
   @override
-  ObservableList<Movie> get movies {
+  ObservableList<Show> get movies {
     _$moviesAtom.reportRead();
     return super.movies;
   }
 
   @override
-  set movies(ObservableList<Movie> value) {
+  set movies(ObservableList<Show> value) {
     _$moviesAtom.reportWrite(value, super.movies, () {
       super.movies = value;
     });
@@ -29,13 +29,13 @@ mixin _$MovieStore on MovieStoreBase, Store {
       Atom(name: 'MovieStoreBase.searchResults', context: context);
 
   @override
-  ObservableList<Movie> get searchResults {
+  ObservableList<Show> get searchResults {
     _$searchResultsAtom.reportRead();
     return super.searchResults;
   }
 
   @override
-  set searchResults(ObservableList<Movie> value) {
+  set searchResults(ObservableList<Show> value) {
     _$searchResultsAtom.reportWrite(value, super.searchResults, () {
       super.searchResults = value;
     });

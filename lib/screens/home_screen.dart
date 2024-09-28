@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               final movie = movieStore.movies[index];
               return ListTile(
-                leading: Image.network(movie.image),
+                leading: Image.network(movie.image.original),
                 title: Text(movie.name),
                 subtitle: Text(movie.summary),
                 onTap: () {

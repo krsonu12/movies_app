@@ -1,9 +1,10 @@
 // details_screen.dart
 import 'package:flutter/material.dart';
-import 'package:movies_app/models/movie.dart';
+import 'package:movies_app/models/show_model.dart';
+import 'package:flutter/src/widgets/image.dart';
 
 class DetailsScreen extends StatelessWidget {
-  final Movie movie;
+  final Show movie;
 
   const DetailsScreen({super.key, required this.movie});
 
@@ -17,7 +18,6 @@ class DetailsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Image.network(movie.image),
             const SizedBox(height: 16),
             Text(movie.name,
                 style:

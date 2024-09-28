@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:mobx/mobx.dart';
-import 'package:movies_app/models/movie.dart';
+import 'package:movies_app/models/show_model.dart';
 
 part 'movie_store.g.dart';
 
@@ -14,10 +14,10 @@ abstract class MovieStoreBase with Store {
   }
 
   @observable
-  ObservableList<Movie> movies = ObservableList<Movie>();
+  ObservableList<Show> movies = ObservableList<Show>();
 
   @observable
-  ObservableList<Movie> searchResults = ObservableList<Movie>();
+  ObservableList<Show> searchResults = ObservableList<Show>();
 
   @observable
   bool isLoading = false;
@@ -41,7 +41,7 @@ abstract class MovieStoreBase with Store {
 
         // Map and store movies, ensuring data isn't null
         movies.clear(); // Clear previous movies before adding new ones
-        return movies.addAll(data.map((json) => Movie.fromJson(json)).toList());
+        return movies.addAll(data.map((json) => Show.fromJson(json)).toList());
       } else {
         errorMessage = 'Failed to fetch movies. Please try again later.';
       }
@@ -68,7 +68,7 @@ abstract class MovieStoreBase with Store {
         // Map and store search results, ensuring data isn't null
         searchResults.clear();
         return searchResults
-            .addAll(data.map((json) => Movie.fromJson(json)).toList());
+            .addAll(data.map((json) => Show.fromJson(json)).toList());
       } else {
         errorMessage = 'Failed to search movies. Please try again later.';
       }
